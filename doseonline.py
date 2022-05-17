@@ -1,8 +1,8 @@
 import discord
 import sqlite3
 import time
+import os
 
-token = 'NzU0OTUyOTQxMjE1MDIzMTU3.G3-aJi.WPOlymlUCJSN1N6oopUTLIb795zDLIUqvM4Q_A'
 achannel = '976244162712182859'
 
 client = discord.Client()
@@ -193,4 +193,5 @@ async def on_message(message):
                 embed = discord.Embed(title='❌  오류', description=f'오류가 발생하였습니다\n`{str(e)}`', color=0xFF0000)
                 await message.channel.send(embed=embed)
 
-client.run(token)
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
